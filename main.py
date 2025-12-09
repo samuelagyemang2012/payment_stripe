@@ -29,7 +29,7 @@ def create_link():
 
     currency = "USD"
     unit_amount = data.get('unit_amount')
-    qty = data.get('qty')
+    # qty = data.get('qty')
     product_name = data.get('product_name')
     desc = data.get('desc')
 
@@ -37,9 +37,9 @@ def create_link():
         logging.error('unit_amount must be greater than 0.')
         return jsonify({"error": "unit_amount must be greater than 0."}, 400)
 
-    if qty <= 0:
-        logging.error('you must have at least 1 item.')
-        return jsonify({"error": "you must have at least 1 item."}, 400)
+    # if qty <= 0:
+    #     logging.error('you must have at least 1 item.')
+    #     return jsonify({"error": "you must have at least 1 item."}, 400)
 
     if len(product_name.strip()) == 0:
         logging.error('a product name is required.')
@@ -49,7 +49,7 @@ def create_link():
         desc = "N/A"
 
     price_data_ = {
-        "quantity": qty,
+        "quantity": 1,
         "price_data": {
             "currency": currency,
             "product_data": {
