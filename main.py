@@ -28,9 +28,7 @@ def index():
 def get_supported_currencies():
     return jsonify({"status": 200,
                     "message": "fetched currencies successfully",
-                    "data": [
-                        {core.get_currencies()}
-                    ]
+                    "data": core.get_currencies()
                     })
 
 
