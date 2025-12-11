@@ -28,6 +28,7 @@ def create_link():
     stripe.api_key = os.getenv('STRIPE_API_KEY')
 
     currency = "USD"
+
     unit_amount = data.get('unit_amount')
     # qty = data.get('qty')
     product_name = data.get('product_name')
@@ -56,7 +57,7 @@ def create_link():
                 "name": product_name,
                 "description": desc,
             },
-            "unit_amount": round(unit_amount)
+            "unit_amount": unit_amount*100
         },
     }
 
