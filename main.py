@@ -19,12 +19,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '{"msg":"gods_shadow_payment v1.0"}'
+    return jsonify({"status": 200,
+                    "message": "gods_shadow_v1.0",
+                    })
 
 
 @app.route('/currencies')
 def get_supported_currencies():
-    return jsonify(core.get_currencies())
+    return jsonify({"status": 200,
+                    "message": "fetched currencies successfully",
+                    "data": [
+                        {core.get_currencies()}
+                    ]
+                    })
 
 
 @app.route('/create_link', methods=['POST'])
